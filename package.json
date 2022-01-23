@@ -1,12 +1,13 @@
 {
-  "name": "react-localize-redux",
-  "version": "3.5.3",
+  "name": "r1-localize",
+  "version": "3.5.8",
   "description": "Localization library for handling translations in React",
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "jsnext:main": "./es/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
+    "deploy": " sh scripts/deploy.sh",
     "build": "npm run build:commonjs && npm run build:es && npm run copy:flow && npm run build:umd && npm run build:umd:min && npm run copy:ts",
     "build:commonjs": "rimraf lib && cross-env BABEL_ENV=commonjs babel ./src -d lib",
     "build:es": "rimraf es && cross-env BABEL_ENV=es babel ./src -d es",
@@ -21,11 +22,13 @@
     "flow": "flow",
     "types": "flow-typed install -i dev",
     "prettier": "prettier --write src/**/*",
-    "upload:demo": "codesandbox ./demo"
+    "upload:demo": "codesandbox ./demo",
+    "commit": "bash scripts/commit.sh",
+    "install:env": "sh scripts/env.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ryandrewjohnson/react-localize-redux.git"
+    "url": "git+https://github.com/erwanriou/react-localize-redux"
   },
   "keywords": [
     "react",
@@ -45,13 +48,6 @@
   ],
   "author": "Ryan Johnson",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ryandrewjohnson/react-localize-redux/issues"
-  },
-  "homepage": "https://github.com/ryandrewjohnson/react-localize-redux#readme",
-  "peerDependencies": {
-    "react": "^16.0.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -104,7 +100,7 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "create-react-context": "^0.2.2",
+    "create-react-context": "^0.3.0",
     "flat": "^2.0.1",
     "hoist-non-react-statics": "^3.0.1",
     "prop-types": "^15.6.1",
